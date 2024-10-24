@@ -1,12 +1,7 @@
 function solution(n) {
-    var answer = 0;
-    let i=1;
-    while(i<n){
-        if(n%i===1) {
-            answer=i;
-            break;
-        }
-        i++;
-    }
-    return answer;
+    const numbers = Array.from({length:n-1},(_,i)=>i+1);
+
+    const valid = numbers.filter(x=>n%x===1);
+    
+    return valid[0];
 }
