@@ -1,22 +1,14 @@
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr, int divisor) {
-        ArrayList<Integer> answerList = new ArrayList<>();
-        for (int num : arr) {
-            if (num % divisor == 0) {
-                answerList.add(num);
-            }
-        }
-
-        if (answerList.isEmpty()) {
+        int[] answer=Arrays.stream(arr).filter(num -> num % divisor == 0).toArray();
+        if (answer.length==0) {
             return new int[] {-1};
         }
-
-        int[] answer = answerList.stream().mapToInt(i -> i).toArray();
-
+        
         Arrays.sort(answer);
         return answer;
+    
     }
 }
